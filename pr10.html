@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment 10</title>
+    <style>
+        :root {
+            --bg-light: linear-gradient(135deg, #f3e8ff, #d1c4e9);
+            --bg-dark: #1e1e2f;
+            --text-light: #4a148c;
+            --text-dark: #e1bee7;
+            --button-light: #9575cd;
+            --button-dark: #5e35b1;
+            --footer-bg-light: #ddd;
+            --footer-text-light: #4a148c;
+            --footer-hover-light: #7e57c2;
+            --footer-bg-dark: rgba(30, 30, 47, 0.7);
+            --footer-text-dark: #e1bee7;
+            --footer-hover-dark: #b39ddb;
+            --navbar-bg-light: rgba(255, 255, 255, 0.2);
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: var(--bg-light);
+            color: var(--text-light);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .dark-mode {
+            background: var(--bg-dark);
+            color: var(--text-dark);
+        }
+
+        .container {
+            background-color: #fff; /* Default white, adjust if needed for dark mode */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            width: 80%;
+            max-width: 960px;
+            margin: 40px;
+            padding: 30px;
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            gap: 30px;
+            transition: background-color 0.3s ease;
+        }
+
+        .dark-mode .container {
+            background-color: #2c2c3d; /* Darker container for dark mode */
+        }
+
+        header {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #eee;
+            margin-bottom: 20px;
+            transition: border-color 0.3s ease;
+        }
+
+        .dark-mode header {
+            border-bottom-color: #555;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            color: var(--text-light); /* Default to light text color */
+            margin-bottom: 5px;
+            transition: color 0.3s ease;
+        }
+
+        .dark-mode header h1 {
+            color: var(--text-dark);
+        }
+
+        header p {
+            font-size: 1.1em;
+            color: #9575cd; /* Using a button color for emphasis */
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .dark-mode header p {
+            color: #b39ddb;
+        }
+
+        .contact {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .contact p {
+            font-size: 0.9em;
+            color: #777; /* A neutral color */
+            margin: 5px 0;
+            transition: color 0.3s ease;
+        }
+
+        .dark-mode .contact p {
+            color: #ccc;
+        }
+
+        .contact a {
+            color: #9575cd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .dark-mode .contact a {
+            color: #b39ddb;
+        }
+
+        .contact a:hover {
+            text-decoration: underline;
+        }
+
+        .about h2,
+        .education h2,
+        .skills h2,
+        .projects h2 {
+            color: var(--button-light);
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 1.6em;
+            grid-column: 2;
+            transition: color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .dark-mode .about h2,
+        .dark-mode .education h2,
+        .dark-mode .skills h2,
+        .dark-mode .projects h2 {
+            color: var(--button-dark);
+            border-bottom-color: #777;
+        }
+
+        .about p {
+            grid-column: 2;
+            line-height: 1.7;
+            transition: color 0.3s ease;
+        }
+
+        .dark-mode .about p {
+            color: var(--text-dark);
+        }
+
+        .education {
+            grid-column: 2;
+        }
+
+        .education p:first-of-type {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: inherit; /* Inherit body text color */
+        }
+
+        .skills {
+            grid-column: 1;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
+        }
+
+        .dark-mode .skills {
+            background-color: #3a3a4a;
+        }
+
+        .skills h2 {
+            grid-column: 1;
+            font-size: 1.4em;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 8px;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--button-light);
+            transition: color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .dark-mode .skills h2 {
+            color: var(--button-dark);
+            border-bottom-color: #777;
+        }
+
+        .skills ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .skills li {
+            margin-bottom: 8px;
+            color: #666;
+            transition: color 0.3s ease;
+        }
+
+        .dark-mode .skills li {
+            color: #ccc;
+        }
+
+        .projects {
+            grid-column: 2;
+        }
+
+        .project {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            transition: border-color 0.3s ease;
+        }
+
+        .dark-mode .project {
+            border-bottom-color: #555;
+        }
+
+        .project h3 {
+            font-size: 1.1em;
+            color: var(--button-light);
+            margin-bottom: 5px;
+            transition: color 0.3s ease;
+        }
+
+        .dark-mode .project h3 {
+            color: var(--button-dark);
+        }
+
+        /* Last project shouldn't have a bottom border */
+        .projects .project:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                margin: 20px;
+                padding: 20px;
+            }
+
+            .skills {
+                grid-column: 1 / -1;
+            }
+
+            .about h2,
+            .education h2,
+            .skills h2,
+            .projects h2 {
+                grid-column: 1;
+            }
+
+            .about p,
+            .education,
+            .projects {
+                grid-column: 1;
+            }
+
+            header {
+                margin-bottom: 15px;
+                padding-bottom: 15px;
+            }
+
+            header h1 {
+                font-size: 2em;
+            }
+
+            header p {
+                font-size: 1em;
+            }
+
+            .contact {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1> Harshad Bhalekar</h1>
+            <p>Web Developer</p>
+            <div class="contact">
+                <p>Email: harshadbhalekar@gmail.com</p>
+                <p>Phone: +91 7083481383</p>
+                <p>LinkedIn: <a href="#">https://www.linkedin.com/in/harshad-bhalekar</a></p>
+            </div>
+        </header>
+
+        <section class="about">
+            <h2>About Me</h2>
+            <p>Passionate web developer with expertise in front-end technologies. Skilled in creating responsive, user-friendly websites with a focus on performance and design.</p>
+        </section>
+
+        <section class="education">
+            <h2>Education</h2>
+            <p><strong>Bachelor of Science in Computer Science</strong></p>
+            <p>Dr D. Y. Patil College Of Engineering, Kasba Bawada | 2024 - 2027</p>
+        </section>
+
+        <section class="skills">
+            <h2>Skills</h2>
+            <ul>
+                <li>HTML, CSS, JavaScript, php</li>
+                <li>Responsive Web Design</li>
+                <li>C, C++, Java, Python</li>
+              
+            </ul>
+        </section>
+
+        <section class="projects">
+            <h2>Projects</h2>
+            <div class="project">
+                <h3>Portfolio Website</h3>
+                <p>A fully responsive personal portfolio showcasing my work.</p>
+                <h3>School Management Website</h3>
+                <p>A fully responsive website for mentaining  student info.</p>
+            </div>
+            
+        </section>
+    </div>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const container = document.querySelector('.container');
+            if (document.body.classList.contains('dark-mode')) {
+                container.style.backgroundColor = '#2c2c3d';
+            } else {
+                container.style.backgroundColor = '#fff';
+            }
+        }
+    </script>
+</body>
+</html>

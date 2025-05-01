@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Assignments</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            background-color: #e0f7fa; /* Light cyan background */
+            color: #333;
+            line-height: 1.5;
+        }
+        .header {
+            background-color: #fff;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            opacity: 0.9; /* Make it slightly translucent (adjust as needed) */
+            position: sticky; /* Make the header sticky */
+            top: 0; /* Stick to the top of the viewport */
+            z-index: 100; /* Ensure it stays above other content */
+        }
+        .header h1 {
+            color: #00bcd4; /* Teal heading */
+            margin-bottom: 5px;
+            font-size: 2em;
+        }
+        .header p {
+            margin: 5px 0;
+            font-size: 0.9em;
+            color: #777;
+        }
+        .sections-container {
+            display: flex; /* Enable flexbox for horizontal layout */
+            gap: 15px; /* Space between the sections */
+            margin-bottom: 20px; /* Space below the container */
+            margin-left: 300px;
+            margin-right: 300px
+        }
+        .section {
+            background-color: #fff;
+            border-radius: 6px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden; /* To contain rounded corners of content */
+            flex: 1; /* Distribute available space equally */
+        }
+        .section-header {
+            background-color: #00bcd4; /* Teal header */
+            color: #fff;
+            padding: 14px 20px; /* Reduced padding */
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+            outline: none; /* Prevent the default focus outline */
+        }
+        .section-header:focus {
+            outline: none; /* Also prevent outline when the element has focus */
+        }
+        .section-header:hover {
+            background-color: #00acc1;
+        }
+        .section-header h2 {
+            margin: 0;
+            font-size: 1.2em; /* Reduced font size for header */
+        }
+        .section-content {
+            padding: 15px 20px; /* Reduced padding */
+            background-color: #f9f9f9;
+            border-top: 1px solid #eee;
+            display: none;
+        }
+        .section-content.show {
+            display: block;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 8px; /* Slightly reduced margin for list items */
+        }
+        li:last-child {
+            margin-bottom: 0;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: inline-block; /* For better hover effect area */
+            padding: 4px 0; /* Slightly reduced padding for links */
+        }
+        a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+        .arrow {
+            font-size: 1em; /* Reduced font size for arrow */
+            transition: transform 0.2s ease-in-out;
+        }
+        .arrow.down {
+            transform: rotate(90deg);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>My Assignments</h1>
+        <p>Name: Harshad Bhalekar</p>
+        <p>Roll No: 98</p>
+        <p>Batch: B4</p>
+    </div>
+
+    <div class="sections-container">
+        <div class="section">
+            <div class="section-header" onclick="toggleSection('htmlAssignments', this)">
+                <h2>HTML Assignments <span class="arrow">&#9658;</span></h2>
+            </div>
+            <div id="htmlAssignments" class="section-content">
+                <ul>
+                    <li><a href="pr2.html">Assignment 2</a></li>
+                    <li><a href="pr3.html">Assignment 3</a></li>
+                    <li><a href="pr4.html">Assignment 4</a></li>
+                    <li><a href="pr5.html">Assignment 5</a></li>
+                    <li><a href="pr6.html">Assignment 6</a></li>
+                    <li><a href="pr7.html">Assignment 7</a></li>
+                    <li><a href="pr8.html">Assignment 8</a></li>
+                    <li><a href="pr9.html">Assignment 9</a></li>
+                    <li><a href="pr10.html">Assignment 10</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- <div class="section">
+            <div class="section-header" onclick="toggleSection('cssAssignments', this)">
+                <h2>CSS Assignments <span class="arrow">&#9658;</span></h2>
+            </div>
+            <div id="cssAssignments" class="section-content">
+                <ul>
+                    <li><a href="css_assignment1.css">Assignment 1</a></li>
+                    <li><a href="css_assignment2.css">Assignment 2</a></li>
+                    <li><a href="css_assignment3.css">Assignment 3</a></li>
+                    <li><a href="css_assignment4.css">Assignment 4</a></li>
+                    <li><a href="css_assignment5.css">Assignment 5</a></li>
+                    <li><a href="css_assignment6.css">Assignment 6</a></li>
+                    <li><a href="css_assignment7.css">Assignment 7</a></li>
+                    <li><a href="css_assignment8.css">Assignment 8</a></li>
+                    <li><a href="css_assignment9.css">Assignment 9</a></li>
+                    <li><a href="css_assignment10.css">Assignment 10</a></li>
+                </ul>
+            </div>
+        </div> -->
+
+        <div class="section">
+            <div class="section-header" onclick="toggleSection('xmlAssignments', this)">
+                <h2>XML Assignments <span class="arrow">&#9658;</span></h2>
+            </div>
+            <div id="xmlAssignments" class="section-content">
+                <ul>
+                    <li><a href="xml_assignment1.xml">Assignment 1</a></li>
+                    <li><a href="xml_assignment2.xml">Assignment 2</a></li>
+                    <li><a href="xml_assignment3.xml">Assignment 3</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleSection(sectionId, headerElement) {
+            const sectionContent = document.getElementById(sectionId);
+            const arrow = headerElement.querySelector('.arrow');
+            sectionContent.classList.toggle('show');
+            arrow.classList.toggle('down');
+            arrow.innerHTML = sectionContent.classList.contains('show') ? '&#9660;' : '&#9658;';
+        }
+    </script>
+
+</body>
+</html>
